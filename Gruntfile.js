@@ -36,11 +36,7 @@ module.exports = function(grunt) {
       inline: {
         src: ['deploy/views/layout.jade'],
         options: {
-          inline: true,
-          context: {
-            PRODUCTION: true,
-            SCRIPT: 'script.min.js'
-          }
+          inline: true
         }
       }
     },
