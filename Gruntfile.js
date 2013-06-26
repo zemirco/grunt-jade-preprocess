@@ -43,6 +43,14 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    
+    // usemin for html file
+    useminPrepare: {
+      html: ['deploy/views/example.html']
+    },
+    usemin: {
+      html: ['deploy/views/example.html']
     }
   });
 
@@ -51,6 +59,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-preprocess');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-usemin');
 
 
   // Default task(s).
