@@ -38,6 +38,30 @@ module.exports = function(grunt) {
         options: {
           inline: true
         }
+      },
+      
+      // working with a false deployment folder
+      // this is just for demo - do not use
+      prod: {
+        src: ['deploy/views/layout-wrong.jade'],
+        options: {
+          inline: true,
+          context: {
+            production: true
+          }
+        }
+      },
+      
+      // working with a false development folder
+      // this is just for demo - do not use
+      dev: {
+        src: ['deploy/views/layout-wrong.jade'],
+        options: {
+          inline: true,
+          context: {
+            production: false
+          }
+        }
       }
     },
     
@@ -59,6 +83,8 @@ module.exports = function(grunt) {
 
 
   // Default task(s).
-  grunt.registerTask('deploy', ['clean', 'copy', 'uglify', 'preprocess']);
+  grunt.registerTask('deploy', ['clean', 'copy', 'uglify', 'preprocess:inline']);
+  grunt.registerTask('prepDev', 'preprocess:dev');
+  grunt.registerTask('prepProd', 'preprocess:prod');
 
 };
